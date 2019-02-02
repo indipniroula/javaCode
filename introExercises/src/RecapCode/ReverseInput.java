@@ -23,6 +23,12 @@ public class ReverseInput {
         System.out.println("Reversed");
         System.out.println(lines.stream().map(ReverseInput::reverse).collect(Collectors.toList()));
 
+        //Not doing exactly as specification
+        //Reading lines into a List<String>
+        //I am mapping function Reverse, to each element of List<String>
+        // so ["hi", "hello"] -> ["ih", "olleh"]
+
+
 
 
     }
