@@ -1,0 +1,5 @@
+*.swp
+/out
+.idea
+*.class
+
