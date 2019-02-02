@@ -9,6 +9,7 @@ public class LottoNum {
         lotto();
     }
 
+    //Incomplete, must make lottoNums distinct: use Helper or maybe a Set collection
     public static void lotto(){
         Random generator = new Random();
         final int TOTAL_NUMS = 49;
