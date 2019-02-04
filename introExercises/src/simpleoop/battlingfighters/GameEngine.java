@@ -12,8 +12,8 @@ public class GameEngine {
 
     public static void main(String[] args) {
 
-        Fighter first = new Fighter("Joe", "Warrior", 18, 112);
-        Fighter second = new Fighter("Alex", "Warrior", 18, 122);
+        Fighter first = new Fighter("Joe", "Warrior", 18, 11);
+        Fighter second = new Fighter("Alex", "Warrior", 18, 12);
         Fighter[] fighters = {first, second};
 
         //Introduction

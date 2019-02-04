@@ -19,11 +19,7 @@ public class Fighter {
     }
 
     public void takeDamage(int damage) {
-        if (stamina > 0) {
-            stamina -= damage;
-        } else {
-            stamina = 0;
-        }
+       stamina = Math.max(0, stamina -= damage);
     }
 
     public int calculateDamage() {
