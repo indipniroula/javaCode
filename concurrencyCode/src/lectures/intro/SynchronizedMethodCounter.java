@@ -30,6 +30,8 @@ public class SynchronizedMethodCounter implements Runnable {
         }
     }
 
+    // can synchronize a block of code
+    // synchronize (this)
     public int getCounter() {
         return counter;
     }
