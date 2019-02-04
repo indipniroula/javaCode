@@ -5,8 +5,11 @@ public class Counter {
 
 
     public void run() {
-        int cnt = counter;
-        counter = cnt + 1;
+        int cnt;
+        for (int i = 0; i < 10000000; i++) {
+            cnt = counter;
+            counter = cnt + 1;
+        }
     }
 
     public int getCounter() {
