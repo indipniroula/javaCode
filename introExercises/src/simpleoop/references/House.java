@@ -20,6 +20,7 @@ public class House {
     }
 
     public void setFloorSize(Rectangle floorSize) {
+        //why can't we do - this.floorSize = floorSize;
         this.floorSize = new Rectangle(floorSize.getWidth(), floorSize.getHeight());
         floorArea = floorSize.getWidth() * floorSize.getHeight();
     }
