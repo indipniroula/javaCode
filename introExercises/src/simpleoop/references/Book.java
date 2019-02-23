@@ -30,6 +30,7 @@ public class Book {
 
     //equals and hasCode - combine to give 'identity' of object
     // so any Books with same isbn number seen as same object (reference)
+    // if overriding equals - always override hashCode
 
     @Override
     public String toString() {
