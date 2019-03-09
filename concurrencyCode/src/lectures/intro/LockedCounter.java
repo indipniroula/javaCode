@@ -35,6 +35,10 @@ public class LockedCounter extends ConcurrentCounter {
         } finally {
             lock.unlock();
         }
+        /* Always want to unlock() at the end, even in case of
+        exceptions, hence you run all critical sections in a try
+        block, with a finally block that will always do lock.unlock()
+         */
     }
 
     // Locks not required.

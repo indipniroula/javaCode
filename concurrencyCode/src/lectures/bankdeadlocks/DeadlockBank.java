@@ -15,10 +15,11 @@ public class DeadlockBank {
         List<Transfer> transactions = new ArrayList<>();
         final int transferAmount = 100;
         for (int i = 0; i < 1000; i++) {
-            Transfer toAlly = new Transfer(antosAccount, allysAccount, transferAmount);
+            Transfer toAlly = new Transfer(antosAccount, allysAccount, transferAmount); // Transfer is a thread
             toAlly.start();
             Transfer toAnto = new Transfer(allysAccount, antosAccount, transferAmount);
             toAnto.start();
+            //toAlly and toAnto are different objects - this is key to why they deadlock.
 
             transactions.add(toAlly);
             transactions.add(toAnto);
@@ -50,6 +51,7 @@ public class DeadlockBank {
 
         @Override
         public void run() {
+            // This will deadlock.
             synchronized (accountFrom) {
                 synchronized (accountTo) {
                     if (accountFrom.getBalance() >= amount) {

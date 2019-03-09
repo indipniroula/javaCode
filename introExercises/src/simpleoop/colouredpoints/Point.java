@@ -11,6 +11,18 @@ public class Point {
         this.z = z;
     }
 
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
     public double getDistanceTo(Point other){
         double deltaXSquared = Math.pow(x-other.x, 2);
         double deltaYSquared = Math.pow(y-other.y, 2);
@@ -29,5 +41,20 @@ public class Point {
     @Override
     public String toString() {
         return "(" + x + ", " + y + ", " + z + ")";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Point) {
+            Point a = (Point) obj;
+            return x == a.x && y == a.y && z == a.z;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (x + y + z);
     }
 }

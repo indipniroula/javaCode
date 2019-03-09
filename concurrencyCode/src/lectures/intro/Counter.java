@@ -6,7 +6,7 @@ public class Counter {
 
     public void run() {
         int cnt;
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 10000; i++) {
             cnt = counter;
             counter = cnt + 1;
         }
@@ -20,7 +20,6 @@ public class Counter {
         Counter counter = new Counter();
         counter.run();
         counter.run();
-
         System.out.println(counter.getCounter());
     }
 }

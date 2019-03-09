@@ -32,6 +32,15 @@ public class SynchronizedMethodCounter implements Runnable {
 
     // can synchronize a block of code
     // synchronize (this)
+    /* e.g
+    synchronized (this) {
+        int cnt;
+        for (int i = 0; i < 10000000; i++) {
+            cnt = counter;
+            counter = cnt + 1;
+        }
+    }
+     */
     public int getCounter() {
         return counter;
     }

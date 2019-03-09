@@ -1,7 +1,10 @@
 package simpleoop.simpleinterfaces.peoplecompare;
 
-public class ForenameComparator {
+public class ForenameComparator implements PersonComparator{
     public int compareTo(Person p1, Person p2) {
+
+        // A lot easier is to use compareTo method on strings.
+        // e.g return p1.getForename.compareTo(p2.getForename);
         int answer = 0;
         if (p1.getForename().equals(p2.getForename())) {
             return 0;

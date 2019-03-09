@@ -14,8 +14,23 @@ public class ColouredPoint extends Point {
         this.colour = colour;
     }
 
+    public Colour getColour() {
+        return colour;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " Colour: " + colour.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ColouredPoint) {
+            ColouredPoint a = (ColouredPoint) obj;
+            return super.equals(obj) && colour.ordinal() == a.colour.ordinal();
+        } else {
+            return false;
+        }
+
     }
 }
