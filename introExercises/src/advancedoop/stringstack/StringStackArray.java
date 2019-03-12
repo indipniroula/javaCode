@@ -1,8 +1,9 @@
 package advancedoop.stringstack;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class StringStackArray implements StringStack {
+public class StringStackArray extends AbstractStringStack{
     private final int MAX_ELEMENTS = 100;
     private String[] stackString;
     private int stackHeight = 0;
@@ -36,4 +37,31 @@ public class StringStackArray implements StringStack {
         return stackHeight == 0;
     }
 
+    @Override
+    public StringStackIterator iterator() {
+        return new StringStackArrayIterator();
+    }
+
+
+    private class StringStackArrayIterator implements StringStackIterator {
+
+        private int iteratorPointer = MAX_ELEMENTS - stackHeight;
+
+        @Override
+        public boolean hasNext() {
+            return iteratorPointer < MAX_ELEMENTS;
+        }
+
+        @Override
+        public String next() {
+            String result;
+            if (hasNext()) {
+                result = stackString[iteratorPointer];
+                iteratorPointer++;
+                return result;
+            }
+            return null;
+
+        }
+    }
 }
