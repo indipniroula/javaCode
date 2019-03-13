@@ -1,4 +1,4 @@
-package lectures.intro;
+package lecturessimple.intro;
 
 public class Counter {
     private int counter = 0;

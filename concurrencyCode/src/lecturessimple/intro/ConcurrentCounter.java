@@ -1,4 +1,4 @@
-package lectures.intro;
+package lecturessimple.intro;
 
 public class ConcurrentCounter extends Counter implements Runnable {
     // Implements Runnable but don't need to implement the run function

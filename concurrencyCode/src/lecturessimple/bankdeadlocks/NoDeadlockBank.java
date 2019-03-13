@@ -1,9 +1,10 @@
-package lectures.bankdeadlocks;
+package lecturessimple.bankdeadlocks;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeadlockBank {
+public class NoDeadlockBank {
 
     public static void main(String[] args) {
         Account antosAccount = new Account("Anto", 10000);
@@ -15,11 +16,10 @@ public class DeadlockBank {
         List<Transfer> transactions = new ArrayList<>();
         final int transferAmount = 100;
         for (int i = 0; i < 1000; i++) {
-            Transfer toAlly = new Transfer(antosAccount, allysAccount, transferAmount); // Transfer is a thread
+            Transfer toAlly = new Transfer(antosAccount, allysAccount, transferAmount);
             toAlly.start();
             Transfer toAnto = new Transfer(allysAccount, antosAccount, transferAmount);
             toAnto.start();
-            //toAlly and toAnto are different objects - this is key to why they deadlock.
 
             transactions.add(toAlly);
             transactions.add(toAnto);
@@ -51,9 +51,17 @@ public class DeadlockBank {
 
         @Override
         public void run() {
-            // This will deadlock.
-            synchronized (accountFrom) {
-                synchronized (accountTo) {
+            Account firstAccountToLock, secondAccountToLock;
+            if(accountFrom.getOwner().compareTo(accountTo.getOwner())<0){
+                firstAccountToLock = accountFrom;
+                secondAccountToLock = accountTo;
+            }else{
+                firstAccountToLock = accountTo;
+                secondAccountToLock = accountFrom;
+            }
+
+            synchronized (firstAccountToLock) {
+                synchronized (secondAccountToLock) {
                     if (accountFrom.getBalance() >= amount) {
                         accountFrom.withdraw(amount);
                         accountTo.deposit(amount);
@@ -85,6 +93,10 @@ public class DeadlockBank {
 
         public int getBalance() {
             return balance;
+        }
+
+        public String getOwner() {
+            return owner;
         }
 
         @Override

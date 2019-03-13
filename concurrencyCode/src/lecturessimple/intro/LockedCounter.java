@@ -1,4 +1,4 @@
-package lectures.intro;
+package lecturessimple.intro;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

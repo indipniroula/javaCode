@@ -1,4 +1,4 @@
-package lectures.intro;
+package lecturessimple.intro;
 
 public class SynchronizedMethodCounter implements Runnable {
     private int counter;
