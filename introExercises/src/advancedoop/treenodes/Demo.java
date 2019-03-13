@@ -59,6 +59,22 @@ public class Demo {
 
         System.out.println(root);
 
+        OriginalTreeNode<Integer> root1 = new OriginalTreeNode<>(2);
+        root1.setKey(0);
+        OriginalTreeNode<Integer> a1 = new OriginalTreeNode<>(0);
+        a1.setKey(1);
+        OriginalTreeNode<Integer> a2 = new OriginalTreeNode<>(0);
+        a2.setKey(2);
+
+        root1.setChild(0, a1);
+        root1.setChild(1, a2);
+
+        OriginalTreeNode<Integer> clonedRoot1 = root1.clone();
+        clonedRoot1.setKey(100);
+        System.out.println(root1.getKey());
+        System.out.println(clonedRoot1.getKey());
+
+
 
 
     }
