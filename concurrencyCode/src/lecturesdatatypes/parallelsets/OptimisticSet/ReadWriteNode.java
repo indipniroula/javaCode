@@ -11,6 +11,10 @@ public class ReadWriteNode<E> implements Node<E> {
     private E item;
     private int key;
     private volatile ReadWriteNode<E> next;
+    /*hat this does, if a thread changes 'next', this info
+    is instantly propagated to all the threads.
+    'next' - global access from all threads - no cached copy.
+     */
 
     public ReadWriteNode(E item) {
         this(item, null);

@@ -5,7 +5,7 @@ import lecturesdatatypes.parallelsets.Node;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class OptimisticSet<E> implements C120Set<E> {
+public class OptimisticSet<E>  implements C120Set<E> {
 
     protected AtomicInteger size = new AtomicInteger(0);
     protected ReadWriteNode<E> head, tail;
