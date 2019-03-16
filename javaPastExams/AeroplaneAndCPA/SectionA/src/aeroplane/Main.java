@@ -26,7 +26,7 @@ public class Main {
 
 		System.out.println(allocator);
 
-		// TODO: Section A, Task 5 - use upgrade method
+		// TODO: Section A, Task 5 - use upgrade metho
 		
 	}
 
