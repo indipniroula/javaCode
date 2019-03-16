@@ -1,6 +1,8 @@
 package aeroplane;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Set;
 
 public class Main {
 	
@@ -28,6 +30,14 @@ public class Main {
 		
 	}
 
-	// TODO: Section A, Task 6 - add countAdults method
-	
+	public static int countAdults(Set<? extends Passenger> passengers) {
+		int totalAdults = 0;
+		for (Passenger passenger: passengers) {
+			if (passenger.isAdult()) {
+				totalAdults++;
+			}
+		}
+		return totalAdults;
+	}
+
 }
